@@ -1,0 +1,30 @@
+{
+  "name": "educase-nodejs-assignment",
+  "version": "1.0.0",
+  "description": "Assignment for EduCase internship selection process",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kei74/Educase-NodeJS-Assignment.git"
+  },
+  "author": "Kei74",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kei74/Educase-NodeJS-Assignment/issues"
+  },
+  "homepage": "https://github.com/Kei74/Educase-NodeJS-Assignment#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "mysql2": "^3.14.0",
+    "sequelize-cli": "^6.6.2",
+    "sqlite3": "^5.1.7"
+  }
+}
