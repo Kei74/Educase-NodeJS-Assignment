@@ -1,12 +1,14 @@
 const express = require('express');
 const sequelize = require('./models').sequelize;
-async function fn() {
-	try {
-		await sequelize.authenticate();
-		console.log('Connection has been established successfully.');
-	} catch (error) {
-		console.error('Unable to connect to the database:', error);
-	}
-}
 
-fn();
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use(require('./routes/schoolRoutes'))
+
+sequelize.sync().then(async () => {
+	app.listen(PORT, () => {
+		console.log(`Server is running on http://localhost:${PORT}`);
+	})
+})

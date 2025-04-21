@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class School extends Model {
     /**
@@ -14,17 +12,35 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     // Instance method for calculating distance for sorting function
-    calculateDistanceSquare(userLatitude, userLongitude) {
-      latDiff = userLatitude - this.latitude;
-      longDiff = userLongitude - this.longitude;
-      return (latitude * latitude) + (longitude * longitude);
+    calcDistanceSquare(userLatitude, userLongitude) {
+      const latDiff = userLatitude - this.latitude;
+      const longDiff = userLongitude - this.longitude;
+      return (latDiff* latDiff) + (longDiff * longDiff);
     }
   }
   School.init({
-    name: {allowNull: false, type: DataTypes.STRING},
-    address: {allowNull: false, type: DataTypes.STRING},
-    latitude: {allowNull: false, type: DataTypes.FLOAT},
-    longitude: {allowNull: false, type: DataTypes.FLOAT},
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    address: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    latitude: {
+      allowNull: false,
+      type: DataTypes.FLOAT,
+      validate: {
+        isFloat: true
+      }
+    },
+    longitude: {
+      allowNull: false,
+      type: DataTypes.FLOAT,
+      validate: {
+        isFloat: true
+      }
+    },
   }, {
     sequelize,
     modelName: 'School',
