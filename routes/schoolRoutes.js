@@ -9,6 +9,4 @@ router.get('/listSchools', schoolController.listSchools);
 
 router.post('/addSchool', schoolController.addSchool);
 
-console.log('Router');
-
 module.exports = router;
